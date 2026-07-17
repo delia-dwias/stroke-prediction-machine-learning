@@ -16,8 +16,7 @@ Stroke is one of the leading causes of death worldwide. Early identification of
 on patient medical data. Beyond comparing accuracy, this project focuses on identifying the most influential stroke risk factors and evaluating models using metrics that are suitable for imbalanced datasets.
 
 ## Dataset
-The dataset includes demographic and clinical features 
-for stroke prediction.
+The dataset includes demographic and clinical features for stroke prediction.
 
 **Source:** [Stroke Prediction Dataset - Kaggle](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset)
 
@@ -39,8 +38,7 @@ The project workflow is shown in the diagram below:
 The following preprocessing steps were applied:
 
 - Remove the ID column
-- Fill missing BMI values using mean imputation
-  (assumed MCAR — only 3.9% of data is missing)
+- Fill missing BMI values using mean imputation (assumed MCAR — only 3.9% of data is missing)
 - Remove rare gender category ('Other', only 1 row)
 - Apply One-Hot Encoding for categorical variables
 - Split data into training and test sets
@@ -90,38 +88,23 @@ Both Bagging and AdaBoost consistently identified **age** as the most important 
 ## Key Findings
 - The dataset has a high class imbalance (~95% vs ~5%)
 - **Age** is the most influential feature for stroke prediction
-- `ever_married_Yes` shows correlation with stroke (0.108),
-  but this is likely explained by **age as a confounding
-  variable** — individuals who are married tend to be older
-- **High accuracy (95%) does not mean a good model**
-  for imbalanced data — SVM's ROC AUC is only 0.42
-  (below random classifier)
-- Tree-based ensemble methods significantly outperform
-  linear SVM on this dataset
-- ROC AUC shows that ensemble models can distinguish
-  positive and negative cases reasonably well, but with
-  the standard threshold of 0.5, results are not yet
-  optimal — as reflected in the low F1 score
-- **AdaBoost is the most consistent model**
-  (CV AUC: 0.81 ± 0.01)
+- `ever_married_Yes` shows correlation with stroke (0.108), but this is likely explained by **age as a confounding variable** — individuals who are married tend to be older
+- **High accuracy (95%) does not mean a good model** for imbalanced data — SVM's ROC AUC is only 0.42 (below random classifier)
+- Tree-based ensemble methods significantly outperform linear SVM on this dataset
+- ROC AUC shows that ensemble models can distinguish positive and negative cases reasonably well, but with the standard threshold of 0.5, results are not yet optimal — as reflected in the low F1 score
+- **AdaBoost is the most consistent model** (CV AUC: 0.81 ± 0.01)
 
 ## Lessons Learned
-- Algorithm selection should be based on data
-  characteristics and the problem at hand,
-  not personal preference
+- Algorithm selection should be based on data characteristics and the problem at hand, not personal preference
 - The importance of preventing data leakage
 - How to apply SMOTE correctly
-- The difference between accuracy, F1 score,
-  and ROC AUC
+- The difference between accuracy, F1 score, and ROC AUC
 - Model validation using cross-validation
-- The challenges of working with imbalanced
-  health datasets
+- The challenges of working with imbalanced health datasets
 
 ## Limitations
-- Model performance may be affected by the
-  relatively small dataset
-- F1 score for the stroke class is still low due to
-  extreme class imbalance (~5% positive cases)
+- Model performance may be affected by the relatively small dataset
+- F1 score for the stroke class is still low due to extreme class imbalance (~5% positive cases)
 - Hyperparameter tuning was not performed
 - Full preprocessing pipeline was not implemented
 
@@ -131,8 +114,7 @@ Both Bagging and AdaBoost consistently identified **age** as the most important 
 - Threshold optimization
 - Precision-Recall curve analysis
 - SHAP analysis
-- Evaluate additional ensemble models such as Balanced
-  Random Forest, XGBoost, or LightGBM
+- Evaluate additional ensemble models such as Balanced Random Forest, XGBoost, or LightGBM
 - Use a larger dataset
 
 ## Tools & Libraries
