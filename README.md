@@ -43,9 +43,8 @@ The following preprocessing steps were applied:
 - Apply One-Hot Encoding for categorical variables
 - Split data into training and test sets
 - Handle class imbalance:
-  - Use stratify=y during train-test split
-  - Apply SMOTE only on the training set
-    to prevent data leakage
+    - Use stratify=y during train-test split
+    - Apply SMOTE only on the training set to prevent data leakage
 
 ## Models
 The following machine learning algorithms were used:
